@@ -1,0 +1,90 @@
+2025년 4월 15일 화요일
+
+ch04_제어문 요약정리
+
+tip.
+★ 줄 번호 표시 방법:
+셀을 선택하고 단축키 L 
+
+★ 셀 상단 메뉴에서
+View > Toggle Line Numbers 를 클릭
+
+줄 번호는 코드의 순서를 파악하거나 디버깅할 때 매우 유용★
+
+1. 조건문(if)
+
+grade	성적, 점수, 등급, 학년 등을 의미.
+
+if	조건이 True일 때 실행
+elif	앞의 조건이 False일 때 다른 조건 검사
+else	위 조건이 모두 거짓일 때 실행
+
+x > 10	x는 10보다 크다
+x == 5	x는 5와 같다
+x != y	x는 y와 같지 않다
+a and b	a와 b가 모두 참
+a or b	a 또는 b 중 하나라도 참
+not x	x가 거짓이면 참
+
+한 줄 조건문 (삼항 연산자)
+result = "합격" if score >= 60 else "불합격"
+print(result)
+
+if 조건문과 break 문은 함께 자주 사용되며, 조건이 참일 때 반복문을 강제로 종료할 때 사용
+
+if	조건을 검사
+break	반복문을 강제로 중단
+함께 사용	조건이 참일 때 반복문을 종료함
+
+for i in range(...)	1부터 10 이전까지(즉 9까지) 숫자를 2씩 증가시키며 반복
+range(1, 10, 2)	시작값 1, 끝값 10(포함X), 증가값 2
+(i, end='\t')	줄 바꿈 없이 탭(tab)으로 구분해서 나열함
+\n	             줄 바꿈(New Line) 문자
+'DONE'	             출력할 문자열
+tot                      "전체 합계"**나 "총 개수" 등을 저장하는 변수
+
+for i in range(1, 101): : 1부터 100까지 숫자를 하나씩 꺼내서 i라는 이름표를 붙여라
+if i%2==0:  : 숫자 i가 2로 딱 나누어 지는지 확인 (짝수 확인)
+tot += i : 만약 i가 짝수라면, 현재까지 tot에 저장된 값에 그 짝수를 더해서 다시 tot에 저장 
+            (계속 짝수들을 쌓아나가라.)
+
+2. 반복문 (for-in문, while문, break, continue)
+
+random.seed : seed의 의미 특정 시트값을 맞출 때 사용
+
+- 로또번호 생성기 코딩문 -
+lotto = []
+cnt = 0
+while len(lotto) < 6:
+    temp = random.randint(1, 45)
+    if temp not in lotto:
+        lotto.append(temp)
+# 정렬하기 lotto.sort()
+lotto.sort()
+# for i in range(0, len(lotto)-1):
+#     for j in range(i, len(lotto)):
+#         if lotto[i] > lotto[j]:
+#             lotto[i], lotto[j] = lotto[j], lotto[i]
+#     print(f"{i}번째까지 : {lotto[:i+1]} / {lotto}")
+print("난수 {}번 뽑아서 로또는 {}".format(cnt, lotto))
+
+while num < 10 
+: 변수 num의 값이 10보다 작은 동안 (True인 동안) while 블록 안의 코드를 계속해서 실행
+num += 1
+: 변수 num의 현재 값에 1을 더한 결과를 다시 변수 num에 할당
+
+3. 중첩 루프란? 루프 안에 또 다른 루프가 있는 구조
+ ex) for in문 안에 for in문이 들어가 있는 구조
+     for i in range(2):      # 바깥쪽 루프 (2번 반복)
+         for j in range(3):  # 안쪽 루프 (3번 반복)
+             print(f"i: {i}, j: {j}")
+
+4. 중첩 루프 탈출
+ : break는 바로 감싸는 루프만 탈출. 여러 겹 루프는 한 번에 못 나감.
+- 해결책 1 (주로):
+ : 플래그 변수: 바깥 루프 탈출 여부 체크 변수 사용. 안쪽에서 조건 만족 시 플래그 변경, 
+   바깥쪽에서 플래그 보고 break. (일반적, 가독성 좋음)
+- 해결책 2 (예외 활용):
+ : try...except + raise: 안쪽에서 특정 조건 시 예외 발생 (raise), 
+   바깥쪽 except에서 예외를 잡아 루프 탈출. (간결할 수 있으나, 가독성 떨어질 수 있음)
+- 기타 : 함수 내 return (함수 전체 종료). 라이브러리 활용 (특정 기능).
