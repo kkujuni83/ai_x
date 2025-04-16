@@ -1,0 +1,5 @@
+★ vscode 다운받기 ★
+- window64버전으로 제대로 보고 깔기
+- vscode 검색창에 확장팩 설치 korean
+                                         python
+                                         jupyter 추가 설치 실시.
