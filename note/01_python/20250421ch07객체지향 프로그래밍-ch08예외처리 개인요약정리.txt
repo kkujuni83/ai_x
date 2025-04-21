@@ -1,0 +1,169 @@
+2025년 04월 21일 ch07 객체지향 프로그래밍
+
+▣ 객체지향 프로그래밍 (OOP) 핵심 요약 (10줄 내외)
+
+- 실세계 모델링 : 데이터와 기능을 객체로 묶어 표현하는 프로그래밍 패러다임.
+- 객체와 클래스 : 클래스는 설계도, 객체는 클래스의 실제 구현체 (인스턴스).
+      클래스(설계도) : class Dog: def bark(self): print("멍멍!")
+      객체(실제) : my_dog = Dog()
+
+- 캡슐화 : 데이터와 메서드를 묶어 정보 은닉 및 외부 접근 제어.
+
+class Car:
+     def __init__(self):
+          self.__speed = 0  # 비공개 속성
+     def get_speed(self):
+          return self.__speed
+my_car = Car()
+# print(my_car.__speed)  # 오류 발생 (외부 접근 불가)
+print(my_car.get_speed()) # 메서드를 통한 접근
+
+- 상속 : 부모 클래스의 특징을 자식 클래스가 물려받아 코드 재사용.
+class Animal:
+     def speak(self):
+          print("동물이 소리를 냅니다.")
+class Cat(Animal):
+     def speak(self):
+          print("야옹!")
+my_cat = Cat()
+my_cat.speak() # "야옹!" 출력
+
+- 다형성 : 같은 이름의 메서드가 객체 타입에 따라 다르게 동작.
+def animal_sound(animal):
+    animal.speak()
+
+class Dog:
+    def speak(self):
+        print("멍멍!")
+class Cat:
+    def speak(self):
+        print("야옹!")
+
+dog = Dog()
+cat = Cat()
+animal_sound(dog) # "멍멍!" 출력
+animal_sound(cat) # "야옹!" 출력
+
+- 추상화 : 핵심적인 특징만 드러내고 불필요한 정보는 숨김.
+
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+    def area(self):
+        return 3.14 * self.radius * self.radius
+
+# shape = Shape() # 오류 발생 (추상 클래스의 인스턴스화 불가)
+circle = Circle(5)
+print(circle.area())
+
+ -  모듈성 향상 : 코드를 독립적인 객체 단위로 구성하여 관리 용이.
+ - 유지보수 용이 : 객체 단위 수정으로 전체 시스템 영향 최소화.
+ - 코드 재사용 증대 : 상속 등을 통해 효율적인 코드 개발 가능.
+ - 복잡한 시스템 설계 : 현실 세계처럼 모델링하여 체계적인 개발 지원.
+
+▣ 파이썬 예외 처리 핵심 요약
+
+◆ 예외 처리 : 프로그램 오류(예외) 발생 시, 정상 종료를 유도하는 메커니즘.
+
+- try 블록 : 예외가 발생할 가능성이 있는 코드를 감쌉니다.
+
+try:
+    num = int(input("정수를 입력하세요: "))
+    result = 10 / num
+    print(f"결과: {result}")
+except:
+    print("오류가 발생했습니다.")
+
+- except 블록 : try 블록에서 특정 예외 발생 시 실행될 코드를 정의합니다.
+
+try:
+    my_list = [1, 2, 3]
+    print(my_list[5])
+except IndexError:
+    print("리스트의 인덱스 범위를 벗어났습니다.")
+
+- 다중 except : 여러 종류의 예외를 각각 처리할 수 있습니다.
+
+try:
+    num_str = input("정수를 입력하세요: ")
+    num = int(num_str)
+    result = 10 / num
+    print(f"결과: {result}")
+except ValueError:
+    print("정수 형식으로 입력해야 합니다.")
+except ZeroDivisionError:
+    print("0으로 나눌 수 없습니다.")
+except Exception as e:
+    print(f"예상치 못한 오류가 발생했습니다: {e}")
+
+- else 블록 (선택 사항) : try 블록에서 예외가 발생하지 않으면 실행됩니다.
+
+try:
+    num = int(input("양의 정수를 입력하세요: "))
+    if num <= 0:
+        raise ValueError("양수만 입력해야 합니다.")
+except ValueError as e:
+    print(f"오류: {e}")
+else:
+    print(f"입력한 수는 {num}입니다.")
+
+- finally 블록 (선택 사항) : 예외 발생 여부와 관계없이 항상 실행됩니다 (주로 자원 정리).
+
+file = None
+try:
+    file = open("my_file.txt", "r")
+    content = file.read()
+    print(content)
+except FileNotFoundError:
+    print("파일을 찾을 수 없습니다.")
+finally:
+    if file:
+        file.close()
+        print("파일을 닫았습니다.")
+
+- 예외 객체 : 발생한 예외에 대한 정보를 담고 있으며 except 블록에서 접근 가능합니다.
+
+try:
+    num = int(input("정수를 입력하세요: "))
+    result = 10 / num
+    print(f"결과: {result}")
+except ZeroDivisionError as e:
+    print(f"나누기 오류 발생: {e}")
+
+- raise 구문 : 의도적으로 예외를 발생시킬 때 사용합니다.
+
+def check_age(age):
+    if age < 18:
+        raise ValueError("미성년자는 접근할 수 없습니다.")
+    else:
+        print("접근 허용.")
+
+try:
+    check_age(15)
+except ValueError as e:
+    print(f"오류: {e}")
+
+- 커스텀 예외 : 사용자 정의 예외 클래스를 만들어 특정 상황에 맞게 처리할 수 있습니다.
+
+class MyCustomError(Exception):
+    def __init__(self, message):
+        super().__init__(message)
+
+def process_data(data):
+    if not isinstance(data, list):
+        raise MyCustomError("데이터는 리스트 형식이어야 합니다.")
+    print("데이터 처리 중...")
+
+try:
+    process_data("invalid")
+except MyCustomError as e:
+    print(f"커스텀 오류 발생: {e}")
+
+- 목표 : 프로그램 안정성 확보 및 사용자에게 유용한 오류 정보 제공.
