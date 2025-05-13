@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        .container {
+            width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .required-fields, .optional-fields {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #eee;
+            border-radius: 3px;
+        }
+        .required-fields h2, .optional-fields h2 {
+            font-size: 1em;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .form-group {
+            margin-bottom: 10px;
+        }
+        label {
+            display: inline-block;
+            width: 80px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="password"],
+        input[type="email"] {
+            width: calc(100% - 90px);
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        .field-description {
+            font-size: 0.8em;
+            color: #777;
+        }
+        .radio-group label,
+        .checkbox-group label {
+            font-weight: normal;
+            margin-right: 10px;
+        }
+        .buttons {
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 0 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .submit-button {
+            background-color: #007bff;
+            color: white;
+        }
+        .cancel-button {
+            background-color: #6c757d;
+            color: white;
+        }
+        .address {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>회원가입</h1>
+
+        <div class="required-fields">
+            <h2>필수 입력</h2>
+            <div class="form-group">
+                <label align="left">이 름<font color="red">*</font></label>
+                <input type="text" id="name" name="name" required
+                title="이름은 두글자 미만일 경우 형식에 맞지 않습니다" required="required">
+                <div class="field-description">2글자 이상</div>
+            </div>
+            <div class="form-group">
+                <label align="left">아 이 디<font color="red">*</font></label>
+                <input type="text" id="id" name="id" required minlength="4">
+                <div class="field-description">4글자 이상</div>
+            </div>
+            <div class="form-group">
+                <label align="left">비밀번호<font color="red">*</font></label>
+                <input type="password" id="password" name="password" required minlength="1">
+                <div class="field-description">2글자 이상</div>
+            </div>
+            <div class="form-group">
+                <label align="left">비*번 확인<font color="red">*</font></label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+            </div>
+            <div class="form-group">
+                <label align="left">전화번호<font color="red">*</font></label>
+                <input type="text" id="phone" name="phone" placeholder="xx-xxx-xxxx/000-0000-0000" required>
+            </div>
+            <div class="form-group">
+                <label align="left">이 메 일<font color="red">*</font></label>
+                <input type="email" id="email" name="email" placeholder="id@domain.com 또는 co.kr" required>
+            </div>
+        </div>
+
+        <div class="optional-fields">
+            <h2>추가 입력 사항</h2>
+            <div class="form-group">
+                <label align="left">결혼유 무</label>
+                <div class="radio-group">
+                    <input type="radio" id="married" name="marriage_status" value="married">
+                    <label for="married">기혼</label>
+                    <input type="radio" id="unmarried" name="marriage_status" value="unmarried">
+                    <label for="unmarried">미혼</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label align="left">자녀</label>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="son" name="children" value="son">
+                    <label for="son">아들</label>
+                    <input type="checkbox" id="daughter" name="children" value="daughter">
+                    <label for="daughter">딸</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label align="left">지역</label>
+                <select id="region" name="region">
+                    <option value="경기">경기</option>
+                    <option value="서울">서울</option>
+                    <option value="강원">강원</option>
+                    <option value="충청">충청</option>
+                    <option value="전라">전라</option>
+                    <option value="경상">경상</option>
+                    <option value="제주">제주</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button type="submit" class="submit-button">가입</button>
+            <button type="button" class="cancel-button">취소</button>
+        </div>
+    </div>
+<hr>
+    <div class="address">
+        서울특별시 서대문구 신촌로 141 은하빌딩 203호<br>
+        Copyright ⓒ XX All rights reserved
+    </div>
+</body>
+</html>
