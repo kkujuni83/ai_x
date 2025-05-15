@@ -22,40 +22,30 @@
       border:1px solid gray;
     }
     #content > div { height:300px; }
-    #header .left {
-            border-radius: 30px 0 30px 0;
-        }
-    #header .center {
-            border-radius: 0 0 30px 30px;
-        }
-    #header .right {
-            border-radius: 0 30px 0 30px ;
-        }
-    #content .left {
-            border-radius: 0 30px 30px 0;
-        }
-    #content .center {
-            border-radius: 30px ;
-        }
-    #content .right {
-            border-radius: 30px 0 0 30px ;
-        }    
-    #footer .left {
-            border-radius: 0 30px 0 30px ;
-        }
-    #footer .center {
-            border-radius: 30px 30px 0 0 ;
-        }
-    #footer .right {
-            border-radius: 30px 0 30px 0 ;
-        }
-    #content .center #nav ul {overflow: hidden; padding-left: 0;}   
+
+    /* * * border-radius 뒹굴리기 * * */
+    #header  .left,  #footer .right{border-radius: 30px 0;}
+    #header  .center {border-radius:0 0 30px 30px;}
+    #header  .right, #footer .left{border-radius:0 30px;}
+    #content .left  {border-radius:0 30px 30px 0;}
+    #content .center{border-radius:30px;}
+    #content .right {border-radius:30px 0 0 30px;}
+    #footer .center {border-radius:30px 30px 0 0;}
+    /* * * #content .center 부분 * * */
+    #content .center #nav ul {overflow: hidden;padding-left:0;}
     #content .center #nav ul li{
-      float: left; list-style: none; font-weight: bold; font-size:2em;
-      width: 231px; /* ul에 기본 padding이 있어 693/3(=231px)을 width로 하면 안됨.
-      231px로 하려면 ul의 padding-left:0로 해야함 */
-      text-align: center;
-       }       
+      float:left; list-style:none; font-weight:bold; font-size:2em;
+      width :231px; /* ul에 기본 padding이 있어 693/3(=231px)을 width로 하면 안 됨.
+        231px로 하려면 ul의 padding-left:0로 해야함
+      */
+      text-align:center;
+    }
+    #content .center #nav ul li a{text-decoration:none; color:black;}
+    #content .center #academy h1 {text-align:center; padding:20px;}
+    #content .center #academy p  {padding:20px; }
+    /* * * #content .right 부분 * * */
+    #content .right ol li:nth-child(9)~li{color:darkred;}
+    /*#content .right li:nth-last-child(-n+3){color:darkred}*/
   </style>
 </head>
 <body>
@@ -75,9 +65,9 @@
         </ul>
       </div>
       <div id="academy">
-        <h1>AI 개발자 양성과정</h1>
+        <h1>AI개발자 양성과정</h1>
         <p>
-          그들의 위하여서, 들어 인생을 사막이다. 커다란 대고, 타오르고 무엇을 못하다 트고, 풍부하게 그리하였는가? 보내는 힘차게 간에 위하여 넣는 것이다.
+          국가는 농수산물의 수급균형과 유통구조의 개선에 노력하여 가격안정을 도모함으로써 농·어민의 이익을 보호한다.
         </p>
       </div>
     </div>
@@ -96,7 +86,6 @@
         <li>링크</li>
         <li>부정</li>
       </ol>
-      <div></div>
     </div>
   </div>
   <div id="footer">

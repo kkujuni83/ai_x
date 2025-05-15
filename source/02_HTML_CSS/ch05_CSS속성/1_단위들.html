@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+  <style>
+    #wrap{
+      width: 600px; margin: 0 auto;
+      border: 1px solid gray;
+      text-align: justify;
+      padding: 10px;
+    }
+    #wrap p:nth-child(2n){background-color: lightblue;}
+    /* em(원 글씨크기의 몇배), %(글씨크기 및 width, height,...), px, pt(3pt가 4px)
+    pxtoem(https://pxtoem.com.au/)
+    pxtopt(https://pixelsconverter.com/px-to-pt)
+    */
+    #wrap p > span{
+      display: block; /* display속성을 block형 태그로 전환 */
+      color: gray;
+      font-size: .5em;
+    }
+    #wrap p:nth-child(1){
+      font-size: .8em; /* 원래 사이즈의 0.7배 */
+    }
+    #wrap p:nth-child(2){
+      font-size: 100%; /* 문자의 경우 원래 사이즈의 몇 % */
+      /* width, height, padding, margin.. 등 길이의 경우 : 부모길이의 몇 % */
+    }
+    #wrap p:nth-child(3){
+      font-size:32px; /* p태그 기본 사이즈가 16px */
+    }
+    #wrap p:nth-child(4){
+      font-size:24pt; /* 3pt(글씨 포인트 단위)가 4px */
+    }
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <p>
+      행정권은 대통령을 수반으로 하는 정부에 속한다. 대통령은 내란 또는 외환의 죄를 범한 경우를 제외하고는 재직중 형사상의 소추를 받지 아니한다. 공무원의 직무상 불법행위로 손해를 받은 국민은 법률이 정하는 바에 의하여 국가 또는 공공단체에 정당한 배상을 청구할 수 있다. 이 경우 공무원 자신의 책임은 면제되지 아니한다.
+      <span>입력 2025.05.14. 오전 09:46</span>
+    </p>
+    <p>
+      행정권은 대통령을 수반으로 하는 정부에 속한다. 대통령은 내란 또는 외환의 죄를 범한 경우를 제외하고는 재직중 형사상의 소추를 받지 아니한다. 공무원의 직무상 불법행위로 손해를 받은 국민은 법률이 정하는 바에 의하여 국가 또는 공공단체에 정당한 배상을 청구할 수 있다. 이 경우 공무원 자신의 책임은 면제되지 아니한다.
+      <span>입력 2025.05.14. 오전 09:46</span>
+    </p>
+    <p>
+      행정권은 대통령을 수반으로 하는 정부에 속한다. 대통령은 내란 또는 외환의 죄를 범한 경우를 제외하고는 재직중 형사상의 소추를 받지 아니한다. 공무원의 직무상 불법행위로 손해를 받은 국민은 법률이 정하는 바에 의하여 국가 또는 공공단체에 정당한 배상을 청구할 수 있다. 이 경우 공무원 자신의 책임은 면제되지 아니한다.
+      <span>입력 2025.05.14. 오전 09:46</span>
+    </p>
+    <p>
+      행정권은 대통령을 수반으로 하는 정부에 속한다. 대통령은 내란 또는 외환의 죄를 범한 경우를 제외하고는 재직중 형사상의 소추를 받지 아니한다. 공무원의 직무상 불법행위로 손해를 받은 국민은 법률이 정하는 바에 의하여 국가 또는 공공단체에 정당한 배상을 청구할 수 있다. 이 경우 공무원 자신의 책임은 면제되지 아니한다.
+      <span>입력 2025.05.14. 오전 09:46</span>
+    </p>
+  </div>
+</body>
+</html>
