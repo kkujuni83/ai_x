@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숫자 비교</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border: 2px solid darkgray;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            width: 180px;
+            text-align: center;
+            margin-right: 10px;
+            font-size: 2em;
+        }
+        .input-group input {
+            padding: 15px;
+            font-size: 2.5em;
+            border: 2px solid darkgray;
+            width: 300px;
+            text-align: center; /* Center the numbers as in the image */
+        }
+        button {
+            padding: 2px 40px;
+            font-size: 2.5em;
+            background-color: darkgray;
+            border: 2px solid darkgray;
+            color: black;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #resultText {
+            margin-top: 0;
+            text-align: right;
+            font-size: 3.5em; /* Larger font size for the final result text */
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="input-group">
+            <label for="firstNumber">첫 번째 수</label>
+            <input type="number" id="firstNumber" value="20">
+        </div>
+        <div class="input-group">
+            <label for="secondNumber">두 번째 수</label>
+            <input type="number" id="secondNumber" value="10">
+        </div>
+        <button id="compareButton">결과</button>
+    </div>
+    <div id="resultText"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const firstNumberInput = document.getElementById('firstNumber');
+            const secondNumberInput = document.getElementById('secondNumber');
+            const compareButton = document.getElementById('compareButton');
+            const resultText = document.getElementById('resultText');
+
+            compareButton.addEventListener('click', () => {
+                const firstNum = parseInt(firstNumberInput.value);
+                const secondNum = parseInt(secondNumberInput.value);
+
+                if (isNaN(firstNum) || isNaN(secondNum)) {
+                    alert('유효한 숫자를 입력해주세요.');
+                    return;
+                }
+
+                let message = '';
+                if (secondNum > firstNum) {
+                    const difference = secondNum - firstNum;
+                    message = `두 번째 수가 ${difference}만큼 더 크다`;
+                    resultText.textContent = `두 번째 수가 ${difference} 큽니다`;
+                } else if (firstNum > secondNum) {
+                    const difference = firstNum - secondNum;
+                    message = `첫 번째 수가 ${difference}만큼 더 크다`;
+                    resultText.textContent = `첫 번째 수가 ${difference} 큽니다`;
+                } else {
+                    message = '두 수가 같습니다.';
+                    resultText.textContent = '두 수가 같습니다.';
+                }
+
+                alert(message); // This simulates the pop-up in the image
+            });
+        });
+    </script>
+</body>
+</html>
