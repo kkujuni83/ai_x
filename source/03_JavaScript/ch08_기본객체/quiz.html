@@ -21,11 +21,11 @@
     td, th { padding:5px 10px; text-align:center;}
   </style>
   <script>
-    let patternNum = /[0-9]/; // 숫자 패턴 (test함수 사용)
-    let patternEng = /[a-zA-Z]/; // 영문자패턴 
-    let patternSpc = /[~`!@#$%^&*()_\-+=\|\\\[\]{}'":;?\/<>,\.]/; // 특수문자 정규표현식
-    let patternName = /^[a-zA-Z가-힣]{2,}$/ // 이름패턴(match 함수 이용)
-    let patternMail = /^[a-zA-Z0-9\.]{2,}@\w+(\.[a-zA-Z]+){1,2}$/; // macth함수 사용
+    var patternNum = /[0-9]/; // 숫자 패턴 (test함수 사용)
+    var patternEng = /[a-zA-Z]/; // 영문자패턴 
+    var patternSpc = /[~`!@#$%^&*()_\-+=\|\\\[\]{}'":;?\/<>,\.]/; // 특수문자 정규표현식
+    var patternName = /^[a-zA-Z가-힣]{2,}$/ // 이름패턴(match 함수 이용)
+    var patternMail = /^[a-zA-Z0-9\.]+@[a-zA-Z0-9]+(\.[a-z]+){1,2}$/; // macth함수 사용
     const joinCheck = ()=>{
       let name = frm.name.value.trim();
       let mail = frm.mail.value.trim();
@@ -57,6 +57,10 @@
         alert('메일 형식을 확인하세요');
         frm.mail.focus();
         return false;
+      // }else if(!patternMail.test(mail)){
+      //   alert('2방법.메일 형식을 확인하세요');
+      //   frm.mail.focus();
+      //   return false;    
       }else if(!pw){
         alert('비밀번호는 필수 입력 사항입니다');
         frm.pw.focus();
